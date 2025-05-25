@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogSearch Component renders correctly and matches snapshot 1`] = `null`;
+
+exports[`BlogSearch Component renders correctly with an initial query (if you want to test different states) 1`] = `null`;

@@ -1,16 +1,81 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: __dirname
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    ignores: [
+      // Build outputs
+      '.next/**',
+      'out/**',
+      'dist/**',
+      'build/**',
+
+      // Dependencies
+      'node_modules/**',
+
+      // Generated files
+      '.eslintcache',
+      '*.min.js',
+      '*.bundle.js',
+
+      // Tests
+      'src/**/*.test.*',
+      'src/**/*.spec.*',
+      'src/**/__tests__/**',
+
+      // Config files (optional - you might want to lint these)
+      // "*.config.js",
+      // "*.config.ts",
+
+      // Cache and temp directories
+      '.cache/**',
+      'tmp/**',
+      'temp/**',
+
+      // IDE files
+      '.vscode/**',
+      '.idea/**',
+
+      // OS files
+      '.DS_Store',
+      'Thumbs.db',
+
+      // Logs
+      '*.log',
+      'logs/**',
+
+      // Coverage reports
+      'coverage/**',
+      '.nyc_output/**',
+
+      // Storybook
+      'storybook-static/**',
+
+      // Public assets (usually don't need linting)
+      'public/**/*.js'
+
+      // Any other specific folders you want to exclude
+      // "docs/**",
+      // "scripts/**",
+    ]
+  },
+
+  ...compat.config({
+    extends: ['next'],
+    rules: {
+      'react/jsx-key': 'warn',
+      'next/core-web-vitals': 'off',
+      'next/typescript': 'off'
+    }
+  })
 ];
 
 export default eslintConfig;

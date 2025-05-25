@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogPostCard Component renders correctly for a featured post with missing optional images 1`] = `null`;
+
+exports[`BlogPostCard Component renders correctly when featured is false 1`] = `null`;
+
+exports[`BlogPostCard Component renders correctly when featured is not provided (defaults to false) 1`] = `null`;
+
+exports[`BlogPostCard Component renders correctly when featured is true 1`] = `null`;
+
+exports[`BlogPostCard Component renders correctly with missing optional post image and author avatar 1`] = `null`;
