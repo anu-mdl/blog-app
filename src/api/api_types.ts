@@ -98,7 +98,9 @@ export type CommentsRecord = {
   content?: string;
   created?: IsoDateString;
   id: string;
+  likes?: number;
   post?: RecordIdString;
+  replies?: RecordIdString[];
   updated?: IsoDateString;
 };
 
@@ -108,14 +110,17 @@ export type LikesRecord = {
   user?: RecordIdString;
 };
 
-export type PostsRecord = {
+export type PostsRecord<TtableOfContents = unknown> = {
   author?: RecordIdString;
   category?: string;
   content?: string;
   created?: IsoDateString;
+  excerpt?: string;
   id: string;
   image?: string;
   likes?: number;
+  tableOfContents?: null | TtableOfContents;
+  tags?: string;
   title?: string;
   updated?: IsoDateString;
 };
@@ -124,14 +129,16 @@ export enum UsersRoleOptions {
   'user' = 'user',
   'admin' = 'admin'
 }
-export type UsersRecord = {
+export type UsersRecord<Tsocials = unknown> = {
   avatar?: string;
+  bio?: string;
   created?: IsoDateString;
   email: string;
   emailVisibility?: boolean;
   id: string;
   password: string;
   role?: UsersRoleOptions;
+  socials?: null | Tsocials;
   tokenKey: string;
   updated?: IsoDateString;
   username?: string;
@@ -153,9 +160,13 @@ export type CommentsResponse<Texpand = unknown> = Required<CommentsRecord> &
   BaseSystemFields<Texpand>;
 export type LikesResponse<Texpand = unknown> = Required<LikesRecord> &
   BaseSystemFields<Texpand>;
-export type PostsResponse<Texpand = unknown> = Required<PostsRecord> &
-  BaseSystemFields<Texpand>;
-export type UsersResponse<Texpand = unknown> = Required<UsersRecord> &
+export type PostsResponse<
+  TtableOfContents = unknown,
+  Texpand = unknown
+> = Required<PostsRecord<TtableOfContents>> & BaseSystemFields<Texpand>;
+export type UsersResponse<Tsocials = unknown, Texpand = unknown> = Required<
+  UsersRecord<Tsocials>
+> &
   AuthSystemFields<Texpand>;
 
 // Types containing all Records and Responses, useful for creating typing helper functions

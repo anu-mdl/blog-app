@@ -53,7 +53,8 @@ export default function BlogPage() {
       activeCategory === 'All' || post.category === activeCategory;
     const matchesSearch =
       post.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.content?.toLowerCase().includes(searchQuery.toLowerCase());
+      post.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.tags?.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 

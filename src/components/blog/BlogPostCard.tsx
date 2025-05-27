@@ -26,11 +26,12 @@ export function BlogPostCard({
       <Card className="overflow-hidden border-0 shadow-none md:grid md:grid-cols-2 md:gap-4 md:border md:shadow-sm">
         <div className="relative aspect-video overflow-hidden rounded-t-lg md:aspect-auto md:rounded-lg">
           <Image
-            src={post.image ? pb.files.getUrl(post, post.image) : '/image.svg'}
+            src={post.image ? pb.files.getURL(post, post.image) : '/image.svg'}
             width={1200}
             height={600}
             alt="blog post"
             className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            priority
           />
         </div>
         <div className="flex flex-col justify-center p-6">
@@ -50,7 +51,7 @@ export function BlogPostCard({
             </Link>
           </CardHeader>
           <CardContent className="p-0 pt-4">
-            <p className="text-muted-foreground line-clamp-3">{post.content}</p>
+            <p className="text-muted-foreground line-clamp-3">{post.excerpt}</p>
           </CardContent>
           <CardFooter className="p-0 pt-6">
             <div className="flex items-center justify-between w-full">
@@ -58,18 +59,21 @@ export function BlogPostCard({
                 <Avatar className="h-8 w-8">
                   <AvatarImage
                     src={
-                      post.author.avatar
-                        ? pb.files.getUrl(post.author, post.author.avatar)
+                      post.expand?.author?.avatar
+                        ? pb.files.getUrl(
+                            post.expand.author,
+                            post.expand.author.avatar
+                          )
                         : '/image.svg'
                     }
-                    alt={post.author.username}
+                    alt={post.expand?.author?.username}
                   />
                   <AvatarFallback>
-                    {post.author?.username?.charAt(0)}
+                    {post.expand?.author?.username?.charAt(0) || '?'}
                   </AvatarFallback>
                 </Avatar>
                 <span className="text-sm font-medium">
-                  {post.author.username}
+                  {post.expand?.author?.username}
                 </span>
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -89,7 +93,7 @@ export function BlogPostCard({
     <Card className="overflow-hidden h-full transition-all hover:border-primary/50">
       <div className="relative aspect-video overflow-hidden rounded-t-lg">
         <Image
-          src={post.image ? pb.files.getUrl(post, post.image) : '/image.svg'}
+          src={post.image ? pb.files.getURL(post, post.image) : '/image.svg'}
           alt="blog post"
           width={354}
           height={199}
@@ -113,7 +117,7 @@ export function BlogPostCard({
       </CardHeader>
       <CardContent className="p-4 pt-2">
         <p className="text-muted-foreground text-sm line-clamp-2">
-          {post.content}
+          {post.excerpt}
         </p>
       </CardContent>
       <CardFooter className="p-4 pt-0 mt-auto">
@@ -122,15 +126,20 @@ export function BlogPostCard({
             <Avatar className="h-6 w-6">
               <AvatarImage
                 src={
-                  post.author.avatar
-                    ? pb.files.getUrl(post.author, post.author.avatar)
+                  post.expand?.author?.avatar
+                    ? pb.files.getUrl(
+                        post.expand.author,
+                        post.expand.author.avatar
+                      )
                     : '/image.svg'
                 }
-                alt={post.author.username}
+                alt={post.expand?.author?.username}
               />
-              <AvatarFallback>{post.author.username?.charAt(0)}</AvatarFallback>
+              <AvatarFallback>
+                {post.expand?.author?.username?.charAt(0) || '?'}
+              </AvatarFallback>
             </Avatar>
-            <span className="text-xs">{post.author.username}</span>
+            <span className="text-xs">{post.expand?.author?.username}</span>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
             <div className="flex items-center gap-1">
