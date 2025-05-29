@@ -26,11 +26,11 @@ FILENAME="pocketbase_${PB_VERSION}_${OS}_${ARCH}"
 if [ "$OS" = "windows" ]; then
     FILENAME="${FILENAME}.zip"
     EXECUTABLE_NAME="pocketbase.exe"
-    FINAL_NAME="run.exe"
+    FINAL_NAME="pocketbase.exe"
 else
     FILENAME="${FILENAME}.zip"
     EXECUTABLE_NAME="pocketbase"
-    FINAL_NAME="run"
+    FINAL_NAME="pocketbase"
 fi
 
 DOWNLOAD_URL="https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/${FILENAME}"
@@ -50,7 +50,7 @@ else
     unzip -j "$FILENAME" "$EXECUTABLE_NAME" -d "./src/pocketbase"
 fi
 
-# Rename executable to "run"
+# Rename executable to "pocketbase"
 echo "Renaming executable to ${FINAL_NAME}..."
 mv "./src/pocketbase/$EXECUTABLE_NAME" "./src/pocketbase/$FINAL_NAME"
 
