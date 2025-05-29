@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { pb } from '@/lib/pb';
 import { useQuery } from '@tanstack/react-query';
 import { PostsRecordExtended } from '@/api/extended_types';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const categories = [
   'All',
@@ -27,7 +28,10 @@ const categories = [
 export default function BlogPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get('search') || '';
+  const router = useRouter();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['blog-posts'],
@@ -58,6 +62,12 @@ export default function BlogPage() {
     return matchesCategory && matchesSearch;
   });
 
+  const handleClearSearch = () => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('search');
+    router.push(`?${params.toString()}`);
+  };
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = filteredPosts?.slice(indexOfFirstPost, indexOfLastPost);
@@ -69,7 +79,10 @@ export default function BlogPage() {
   };
 
   const handleSearch = (query: string) => {
-    setSearchQuery(query);
+    // setSearchQuery(query);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('search', query);
+    router.push(`?${params.toString()}`);
     setCurrentPage(1);
   };
 
@@ -108,7 +121,8 @@ export default function BlogPage() {
                   variant="ghost"
                   size="icon"
                   className="h-4 w-4 ml-1 p-0"
-                  onClick={() => setSearchQuery('')}
+                  // onClick={() => setSearchQuery('')}
+                  onClick={() => handleClearSearch()}
                 >
                   <span className="sr-only">Clear search</span>×
                 </Button>
