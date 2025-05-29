@@ -14,6 +14,9 @@ import { CommentsRecordExtended } from '@/api/extended_types';
 import { pb } from '@/lib/pb';
 import { useParams } from 'next/navigation';
 import { Skeleton } from '@/components/ui/skeleton';
+import Cookies from 'js-cookie';
+import { pocketbase } from '@/api/pocketbase';
+import { pocketbaseClient } from '@/api/pocketbase-client';
 
 const CommentSkeleton = () => (
   <div className="flex gap-3">
@@ -30,6 +33,7 @@ export function CommentsSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const commentCount = 5;
   const [newComment, setNewComment] = useState('');
+  let authorData = pb.authStore.model;
 
   const { data, error, isLoading } = useQuery({
     queryKey: ['comments'],
@@ -80,6 +84,7 @@ export function CommentsSection() {
 
   const handleSubmitComment = async (e: React.FormEvent) => {
     e.preventDefault();
+    const pb = await pocketbaseClient();
 
     if (!newComment.trim()) return;
 
@@ -87,7 +92,24 @@ export function CommentsSection() {
 
     const authorId = pb.authStore.model?.id;
     if (!authorId) {
-      console.error('User not authenticated');
+      try {
+        const authData = await pb.collection('author').authRefresh();
+        const refreshedAuthorauthorId = pb.authStore.model?.id;
+
+        if (!refreshedAuthorauthorId) {
+          return <div>Unable to retrieve author ID after refresh</div>;
+        }
+
+        authorData = await pb
+          .collection('author')
+          .getOne(refreshedAuthorauthorId);
+      } catch (refreshError) {
+        console.error('Error refreshing auth:', refreshError);
+        return;
+      }
+    }
+
+    if (authorId === undefined) {
       return;
     }
 

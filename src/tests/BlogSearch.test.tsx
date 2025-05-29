@@ -4,9 +4,11 @@ import renderer from 'react-test-renderer';
 jest.mock('@/components/ui/input', () => (props: any) => (
   <input {...props} data-testid="mock-input" />
 ));
+
 jest.mock('@/components/ui/button', () => (props: any) => (
   <button {...props} data-testid="mock-button" />
 ));
+
 jest.mock('lucide-react', () => ({
   Search: (props: any) => <svg {...props} data-testid="mock-search-icon" />
 }));

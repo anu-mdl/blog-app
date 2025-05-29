@@ -149,7 +149,9 @@ export default function BlogPage() {
             </p>
             <form className="space-y-2">
               <Input type="email" placeholder="Your email address" />
-              <Button className="w-full">Subscribe</Button>
+              <Button className="w-full" disabled={true}>
+                Subscribe
+              </Button>
             </form>
           </div>
         </div>
@@ -207,11 +209,7 @@ export default function BlogPage() {
         <TabsContent value="trending" className="pt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...currentPosts]
-              .sort(
-                (a, b) =>
-                  new Date(b.created || '').getTime() -
-                  new Date(a.created || '').getTime()
-              )
+              .sort((a, b) => (b.likes || 0) - (a.likes || 0))
               .map(post => (
                 <BlogPostCard key={post.id} post={post} />
               ))}
