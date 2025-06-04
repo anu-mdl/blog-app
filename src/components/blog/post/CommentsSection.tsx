@@ -139,7 +139,7 @@ export function CommentsSection() {
       <div className="flex gap-3">
         <Avatar className="h-8 w-8 flex-shrink-0">
           <AvatarImage
-            src={comment.author.avatar || '/placeholder.svg'}
+            src={comment.author.avatar || '/image.svg'}
             alt={comment.author.username}
           />
           <AvatarFallback>{comment.author.username?.charAt(0)}</AvatarFallback>

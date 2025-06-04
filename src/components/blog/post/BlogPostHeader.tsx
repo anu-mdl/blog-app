@@ -4,6 +4,7 @@ import { Clock, Calendar, MessageSquare } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
 import { PostsRecordExtended } from '@/api/extended_types';
 import { pb } from '@/lib/pb';
+import Image from 'next/image';
 
 export function BlogPostHeader({ post }: { post: PostsRecordExtended }) {
   const commentCount = 6;
@@ -61,9 +62,9 @@ export function BlogPostHeader({ post }: { post: PostsRecordExtended }) {
       </div>
 
       <div className="relative aspect-video overflow-hidden rounded-lg">
-        <img
+        <Image
           src={post.image ? pb.files.getURL(post, post.image) : '/image.svg'}
-          alt={post.title}
+          alt="Cover"
           className="w-full h-full object-cover"
         />
       </div>

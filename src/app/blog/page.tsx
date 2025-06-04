@@ -36,13 +36,35 @@ export default function BlogPage() {
   const { data, isLoading, error } = useQuery({
     queryKey: ['blog-posts'],
     queryFn: async () => {
-      const response = await pb
+      const posts = await pb
         .collection('posts')
-        .getFullList<PostsRecordExtended>({
-          sort: 'created',
-          expand: 'author'
-        });
-      return response;
+        .getFullList<PostsRecordExtended>({ expand: 'author' });
+
+      if (posts.length === 0) return [];
+
+      const postIds = posts.map(p => p.id);
+
+      const filterString = postIds.map(id => `post="${id}"`).join(' || ');
+
+      const allComments = await pb.collection('comments').getFullList({
+        filter: filterString,
+        fields: 'post'
+      });
+
+      const commentCounts = allComments.reduce(
+        (acc, comment) => {
+          if (comment.post) {
+            acc[comment.post] = (acc[comment.post] || 0) + 1;
+          }
+          return acc;
+        },
+        {} as Record<string, number>
+      );
+
+      return posts.map(post => ({
+        ...post,
+        commentsCount: commentCounts[post.id] || 0
+      }));
     }
   });
 

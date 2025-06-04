@@ -117,6 +117,7 @@ export type PostsRecord<TtableOfContents = unknown> = {
   created?: IsoDateString;
   excerpt?: string;
   id: string;
+  status: 'draft' | 'published' | 'archived';
   image?: string;
   likes?: number;
   tableOfContents?: null | TtableOfContents;

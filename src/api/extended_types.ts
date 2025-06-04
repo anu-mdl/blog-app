@@ -11,11 +11,6 @@ interface TOCItem {
   level: number;
 }
 
-// export type PostsRecordExtended = Omit<PostsRecord, 'author'> & {
-//   tableOfContents?: TOCItem[];
-//   author: UsersRecord<UserSocials>;
-// };
-
 export type PostsRecordExtended = PostsRecord & {
   tableOfContents?: TOCItem[];
   expand?: {
@@ -23,13 +18,18 @@ export type PostsRecordExtended = PostsRecord & {
   };
 };
 
+export type CommentsRecordExtended = Omit<CommentsRecord, 'author'> & {
+  author: UsersRecord<UserSocials>;
+};
+
+// export type PostsRecordExtended = Omit<PostsRecord, 'author'> & {
+//   tableOfContents?: TOCItem[];
+//   author: UsersRecord<UserSocials>;
+// };
+
 // export type PostsRecordExtended = Omit<PostsRecord, 'author'> & {
 //   tableOfContents?: TOCItem[];
 //   expand?: {
 //     author: UsersRecord<UserSocials>;
 //   };
 // };
-
-export type CommentsRecordExtended = Omit<CommentsRecord, 'author'> & {
-  author: UsersRecord<UserSocials>;
-};

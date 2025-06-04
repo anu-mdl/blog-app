@@ -205,7 +205,7 @@ export function Header() {
                     </DropdownMenuItem>
                     {user.role === 'admin' && (
                       <DropdownMenuItem asChild>
-                        <Link href="/dashboard" className="cursor-pointer">
+                        <Link href="/blog/admin" className="cursor-pointer">
                           <PenTool className="mr-2 h-4 w-4" />
                           <span>Admin</span>
                         </Link>
