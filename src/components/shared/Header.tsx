@@ -52,6 +52,11 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pb = pocketbaseClient();
   const user = pb.authStore.model;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,7 +150,7 @@ export function Header() {
               <span className="sr-only">Search</span>
             </Button>
 
-            {/* <Button
+            <Button
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
@@ -154,7 +159,7 @@ export function Header() {
               <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle theme</span>
-            </Button> */}
+            </Button>
 
             {user ? (
               <div className="flex items-center gap-2">
@@ -294,16 +299,26 @@ export function Header() {
 
                   <div className="flex items-center justify-between px-3 py-2">
                     <span className="text-sm font-medium">Theme</span>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() =>
-                        setTheme(theme === 'light' ? 'dark' : 'light')
-                      }
-                    >
-                      <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                      <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    </Button>
+                    {mounted ? (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() =>
+                          setTheme(theme === 'light' ? 'dark' : 'light')
+                        }
+                      >
+                        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                        <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="hidden sm:inline-flex"
+                      >
+                        <div className="h-5 w-5" />
+                      </Button>
+                    )}
                   </div>
 
                   {!user && (
