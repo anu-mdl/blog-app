@@ -118,7 +118,7 @@ jest.mock('lucide-react', () => ({
 jest.mock('@/lib/pb', () => ({
   pb: {
     files: {
-      getUrl: jest.fn((record: any, filename: string | undefined) => {
+      getURL: jest.fn((record: any, filename: string | undefined) => {
         if (!filename) {
           return 'mock-pb-url/undefined-file.jpg';
         }

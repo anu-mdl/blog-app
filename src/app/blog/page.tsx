@@ -101,7 +101,6 @@ export default function BlogPage() {
   };
 
   const handleSearch = (query: string) => {
-    // setSearchQuery(query);
     const params = new URLSearchParams(searchParams.toString());
     params.set('search', query);
     router.push(`?${params.toString()}`);
@@ -151,7 +150,13 @@ export default function BlogPage() {
               </Badge>
             </div>
           )}
-          {!searchQuery && <BlogPostCard post={featuredPost} featured={true} />}
+          {!searchQuery && (
+            <BlogPostCard
+              post={featuredPost}
+              featured={true}
+              commentsCount={featuredPost.commentsCount}
+            />
+          )}
         </div>
 
         {/* CATEGORIES FILTER*/}
@@ -209,12 +214,12 @@ export default function BlogPage() {
             >
               Trending
             </TabsTrigger>
-            {/* <TabsTrigger
-                value="popular"
-                className="data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2 -mb-px data-[state=active]:text-foreground"
-              >
-                Popular
-              </TabsTrigger> */}
+            <TabsTrigger
+              value="popular"
+              className="data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none px-4 py-2 -mb-px data-[state=active]:text-foreground"
+            >
+              Popular
+            </TabsTrigger>
           </TabsList>
 
           <div className="text-sm text-muted-foreground">
@@ -228,7 +233,11 @@ export default function BlogPage() {
           {currentPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentPosts.map(post => (
-                <BlogPostCard key={post.id} post={post} />
+                <BlogPostCard
+                  key={post.id}
+                  post={post}
+                  commentsCount={post.commentsCount}
+                />
               ))}
             </div>
           ) : (
@@ -247,17 +256,28 @@ export default function BlogPage() {
             {[...currentPosts]
               .sort((a, b) => (b.likes || 0) - (a.likes || 0))
               .map(post => (
-                <BlogPostCard key={post.id} post={post} />
+                <BlogPostCard
+                  key={post.id}
+                  post={post}
+                  commentsCount={post.commentsCount}
+                />
               ))}
           </div>
         </TabsContent>
 
-        {/* TODO: make sort by comments count */}
-        {/* <TabsContent value="popular" className="pt-6">
+        <TabsContent value="popular" className="pt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+            {[...currentPosts]
+              .sort((a, b) => (b.commentsCount || 0) - (a.commentsCount || 0))
+              .map(post => (
+                <BlogPostCard
+                  key={post.id}
+                  post={post}
+                  commentsCount={post.commentsCount}
+                />
+              ))}
           </div>
-        </TabsContent> */}
+        </TabsContent>
       </Tabs>
 
       {/* PAGINATION */}

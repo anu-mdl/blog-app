@@ -31,7 +31,6 @@ const CommentSkeleton = () => (
 export function CommentsSection() {
   const params = useParams<{ id: string }>();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const commentCount = 5;
   const [newComment, setNewComment] = useState('');
   let authorData = pb.authStore.model;
 
@@ -173,7 +172,9 @@ export function CommentsSection() {
   return (
     <Card className="min-w-0 overflow-hidden">
       <CardHeader>
-        <CardTitle className="text-lg">Comments ({commentCount})</CardTitle>
+        <CardTitle className="text-lg">
+          Comments ({data?.length || 0})
+        </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6 min-w-0">
         <form onSubmit={handleSubmitComment} className="space-y-4">

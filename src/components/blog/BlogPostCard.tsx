@@ -1,3 +1,4 @@
+import { LikesRecord } from '@/api/api_types';
 import { PostsRecordExtended } from '@/api/extended_types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
@@ -9,18 +10,39 @@ import {
 } from '@/components/ui/card';
 import { pb } from '@/lib/pb';
 import { formatDate } from '@/lib/utils';
-import { MessageSquare } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { MessageSquare, ThumbsUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Skeleton } from '../ui/skeleton';
 
 export function BlogPostCard({
   post,
+  commentsCount = 0,
   featured = false
 }: {
   post: PostsRecordExtended;
+  commentsCount?: number;
   featured?: boolean;
 }) {
-  const commentCount = 5;
+  const {
+    data: likeCount,
+    isLoading,
+    isError
+  } = useQuery({
+    queryKey: ['likes-count', post.id],
+    queryFn: async () => {
+      const { totalItems } = await pb.collection('likes').getList(1, 1, {
+        filter: `post="${post.id}"`,
+        fields: 'id',
+        requestKey: null
+      });
+      return totalItems;
+    },
+    refetchOnWindowFocus: true,
+    staleTime: 60 * 1000
+  });
+
   if (featured) {
     return (
       <Card className="overflow-hidden border-0 shadow-none md:grid md:grid-cols-2 md:gap-4 md:border md:shadow-sm">
@@ -60,7 +82,7 @@ export function BlogPostCard({
                   <AvatarImage
                     src={
                       post.expand?.author?.avatar
-                        ? pb.files.getUrl(
+                        ? pb.files.getURL(
                             post.expand.author,
                             post.expand.author.avatar
                           )
@@ -77,9 +99,19 @@ export function BlogPostCard({
                 </span>
               </div>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                {isLoading ? (
+                  <Skeleton className="h-4 w-8" />
+                ) : isError ? (
+                  <span className="text-red-500">Error</span>
+                ) : (
+                  <div className="flex items-center gap-1">
+                    <ThumbsUp className="h-4 w-4" />
+                    <span>{likeCount}</span>
+                  </div>
+                )}{' '}
                 <div className="flex items-center gap-1">
                   <MessageSquare className="h-4 w-4" />
-                  <span>{commentCount}</span>
+                  <span>{commentsCount}</span>
                 </div>
               </div>
             </div>
@@ -127,7 +159,7 @@ export function BlogPostCard({
               <AvatarImage
                 src={
                   post.expand?.author?.avatar
-                    ? pb.files.getUrl(
+                    ? pb.files.getURL(
                         post.expand.author,
                         post.expand.author.avatar
                       )
@@ -142,9 +174,19 @@ export function BlogPostCard({
             <span className="text-xs">{post.expand?.author?.username}</span>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            {isLoading ? (
+              <Skeleton className="h-4 w-8" />
+            ) : isError ? (
+              <span className="text-red-500">Error</span>
+            ) : (
+              <div className="flex items-center gap-1">
+                <ThumbsUp className="h-4 w-4" />
+                <span>{likeCount}</span>
+              </div>
+            )}{' '}
             <div className="flex items-center gap-1">
               <MessageSquare className="h-3 w-3" />
-              <span>{commentCount}</span>
+              <span>{commentsCount}</span>
             </div>
           </div>
         </div>

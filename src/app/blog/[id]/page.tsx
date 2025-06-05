@@ -1,3 +1,4 @@
+import { CommentsRecord } from '@/api/api_types';
 import { PostsRecordExtended } from '@/api/extended_types';
 import { BlogPostAuthor } from '@/components/blog/post/BlogPostAuthor';
 import { BlogPostContent } from '@/components/blog/post/BlogPostContent';
@@ -27,6 +28,12 @@ export default async function BlogPostPage({
     .getFirstListItem<PostsRecordExtended>(`id="${id}"`, {
       expand: 'author'
     });
+
+  const comments = await pb.collection('comments').getFullList<CommentsRecord>({
+    filter: `post="${id}"`
+  });
+
+  const commentsCount = comments.length;
 
   if (!data || data.expand?.author === undefined) {
     return <div>Not found</div>;

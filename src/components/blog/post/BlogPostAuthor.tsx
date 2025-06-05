@@ -19,7 +19,7 @@ export function BlogPostAuthor({
             <AvatarImage
               src={
                 author?.avatar
-                  ? pb.files.getUrl(author, author.avatar)
+                  ? pb.files.getURL(author, author.avatar)
                   : '/image.svg'
               }
               alt={author.username}
