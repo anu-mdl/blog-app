@@ -69,11 +69,12 @@ const eslintConfig = [
   },
 
   ...compat.config({
-    extends: ['next'],
+    extends: ['plugin:@next/next/recommended', 'next/core-web-vitals'],
+    plugins: ['@next/next'],
     rules: {
       'react/jsx-key': 'warn',
-      'next/core-web-vitals': 'off',
-      'next/typescript': 'off'
+      '@next/next/no-html-link-for-pages': 'error',
+      '@next/next/no-sync-scripts': 'error'
     }
   })
 ];

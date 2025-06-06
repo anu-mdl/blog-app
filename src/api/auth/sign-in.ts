@@ -28,6 +28,7 @@ export async function getCurrentUser() {
 export const logout = async () => {
   const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL);
   pb.authStore.clear();
+  window.location.href = '/blog';
 };
 
 interface FormData {

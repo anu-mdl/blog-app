@@ -107,7 +107,7 @@ export function BlogPostHeader({ post }: { post: PostsRecordExtended }) {
             <AvatarImage
               src={
                 post.expand?.author?.avatar
-                  ? pb.files.getUrl(
+                  ? pb.files.getURL(
                       post.expand.author,
                       post.expand.author.avatar
                     )

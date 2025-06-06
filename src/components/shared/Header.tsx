@@ -2,7 +2,6 @@
 // TODO: добавить страничку authors
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -35,7 +34,11 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
+import PocketBase from 'pocketbase';
+import { usePathname, useRouter } from 'next/navigation';
 import { pocketbaseClient } from '@/api/pocketbase-client';
+import { pb } from '@/lib/pb';
+import Cookies from 'js-cookie';
 
 const navigationItems = [
   { name: 'Home', href: '/', icon: Home },
@@ -50,9 +53,18 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pb = pocketbaseClient();
-  const user = pb.authStore.model;
   const [mounted, setMounted] = useState(false);
+  // const pb = pocketbaseClient() as PocketBase;
+  // const user = pb.authStore.model;
+  const router = useRouter();
+  const user = pocketbaseClient().authStore.model;
+
+  const handleSignOut = async () => {
+    pocketbaseClient().authStore.clear();
+    Cookies.remove('pb_auth_client');
+    router.push('/');
+    router.refresh();
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -71,11 +83,6 @@ export function Header() {
     if (query.trim()) {
       window.location.href = `/blog?search=${encodeURIComponent(query)}`;
     }
-  };
-
-  const handleSignOut = () => {
-    pb.authStore.clear();
-    window.location.href = '/';
   };
 
   return (

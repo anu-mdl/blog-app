@@ -84,58 +84,60 @@ export function PublicationDialog({
   const [newTag, setNewTag] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const mapRecordToFormData = (
-    record: PostsRecordExtended | undefined
-  ): PublicationFormData => {
-    if (!record) {
-      return getInitialFormData();
-    }
-
-    const parseTags = (tagsField: string | undefined): string[] => {
-      if (!tagsField) return [];
-      if (typeof tagsField === 'string') {
-        try {
-          const parsed = JSON.parse(tagsField);
-          if (Array.isArray(parsed)) {
-            return parsed
-              .filter(tag => typeof tag === 'string' && tag.trim())
-              .map(tag => tag.trim());
-          }
-        } catch {
-          return tagsField
-            .split(',')
-            .map(tag => tag.trim())
-            .filter(Boolean);
-        }
-      }
-      return [];
-    };
-
-    const getImagePreviewUrl = (currentRecord: PostsRecordExtended): string => {
-      if (
-        !currentRecord.image ||
-        !currentRecord.id ||
-        typeof pb === 'undefined'
-      )
-        return '';
-      return `${pb.baseUrl}/api/files/posts/${currentRecord.id}/${currentRecord.image}`;
-    };
-
-    return {
-      title: record.title || '',
-      excerpt: record.excerpt || '',
-      content: record.content || '',
-      author: record.author || '',
-      status: record.status || 'draft',
-      category: record.category || '',
-      tags: parseTags(record.tags).join(', '),
-      image: null,
-      imagePreview: getImagePreviewUrl(record)
-    };
-  };
-
   useEffect(() => {
     if (open) {
+      const mapRecordToFormData = (
+        record: PostsRecordExtended | undefined
+      ): PublicationFormData => {
+        if (!record) {
+          return getInitialFormData();
+        }
+
+        const parseTags = (tagsField: string | undefined): string[] => {
+          if (!tagsField) return [];
+          if (typeof tagsField === 'string') {
+            try {
+              const parsed = JSON.parse(tagsField);
+              if (Array.isArray(parsed)) {
+                return parsed
+                  .filter(tag => typeof tag === 'string' && tag.trim())
+                  .map(tag => tag.trim());
+              }
+            } catch {
+              return tagsField
+                .split(',')
+                .map(tag => tag.trim())
+                .filter(Boolean);
+            }
+          }
+          return [];
+        };
+
+        const getImagePreviewUrl = (
+          currentRecord: PostsRecordExtended
+        ): string => {
+          if (
+            !currentRecord.image ||
+            !currentRecord.id ||
+            typeof pb === 'undefined'
+          )
+            return '';
+          return `${pb.baseUrl}/api/files/posts/${currentRecord.id}/${currentRecord.image}`;
+        };
+
+        return {
+          title: record.title || '',
+          excerpt: record.excerpt || '',
+          content: record.content || '',
+          author: record.author || '',
+          status: record.status || 'draft',
+          category: record.category || '',
+          tags: parseTags(record.tags).join(', '),
+          image: null,
+          imagePreview: getImagePreviewUrl(record)
+        };
+      };
+
       const mappedData = mapRecordToFormData(defaultValues);
       setFormData(mappedData);
       setErrors({});
