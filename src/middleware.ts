@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import PocketBase from 'pocketbase';
+import { pocketbaseClient } from './api/pocketbase-client';
 
 const ADMIN_PROTECTED_PATHS = ['/blog/admin', '/admin'];
 
@@ -43,13 +44,13 @@ export async function middleware(request: NextRequest) {
       throw new Error('Invalid auth data');
     }
 
-    pb.authStore.save(authData.token, authData.model);
+    pocketbaseClient().authStore.save(authData.token, authData.model);
 
-    if (!pb.authStore.isValid) {
+    if (!pocketbaseClient().authStore.isValid) {
       throw new Error('Token is not valid');
     }
 
-    const user = pb.authStore.model;
+    const user = pocketbaseClient().authStore.model;
 
     if (!user || user.role !== 'admin') {
       return NextResponse.redirect(new URL('/', request.url));

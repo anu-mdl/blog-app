@@ -54,8 +54,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  // const pb = pocketbaseClient() as PocketBase;
-  // const user = pb.authStore.model;
   const router = useRouter();
   const user = pocketbaseClient().authStore.model;
 

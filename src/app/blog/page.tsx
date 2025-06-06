@@ -38,7 +38,10 @@ export default function BlogPage() {
     queryFn: async () => {
       const posts = await pb
         .collection('posts')
-        .getFullList<PostsRecordExtended>({ expand: 'author' });
+        .getFullList<PostsRecordExtended>({
+          filter: 'status="published"',
+          expand: 'author'
+        });
 
       if (posts.length === 0) return [];
 
