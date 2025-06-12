@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import { BlogPostHeader } from '@/components/blog/post/BlogPostHeader';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { formatDate } from '@/lib/utils';
+import { render, screen } from '@testing-library/react';
 
 jest.mock('@/lib/pb', () => ({
   pb: {

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar matches desktop snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="hidden lg:flex flex-1 max-w-md mx-6 relative"
+  >
+    <div
+      class="relative w-full"
+    >
+      <svg
+        data-testid="search-icon"
+      />
+      <input
+        class="pl-10 pr-4"
+        placeholder="Search articles..."
+        role="textbox"
+        type="search"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SearchBar matches focused state snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="hidden lg:flex flex-1 max-w-md mx-6 relative"
+  >
+    <div
+      class="relative w-full"
+    >
+      <svg
+        data-testid="search-icon"
+      />
+      <input
+        class="pl-10 pr-4"
+        placeholder="Search articles..."
+        role="textbox"
+        type="search"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SearchBar matches mobile snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="relative"
+  >
+    <svg
+      data-testid="search-icon"
+    />
+    <input
+      class="pl-10"
+      placeholder="Search articles..."
+      role="textbox"
+      type="search"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;

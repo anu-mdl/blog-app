@@ -1,10 +1,8 @@
 'use client';
 // TODO: добавить страничку authors
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { pocketbaseClient } from '@/api/pocketbase-client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
+import { Input } from '@/components/ui/input';
 import {
   Sheet,
   SheetContent,
@@ -20,25 +19,24 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet';
+import { pb } from '@/lib/pb';
+import { cn } from '@/lib/utils';
+import Cookies from 'js-cookie';
 import {
-  Search,
-  Menu,
-  Sun,
-  Moon,
-  Settings,
-  LogOut,
   BookOpen,
   Home,
+  LogOut,
+  Menu,
   PenTool,
+  Search,
+  Settings,
   User
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { useTheme } from 'next-themes';
-import PocketBase from 'pocketbase';
+import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { pocketbaseClient } from '@/api/pocketbase-client';
-import { pb } from '@/lib/pb';
-import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import ThemeToggle from '../header/ThemeToggle';
+import SearchBar from '../header/SearchBar';
 
 const navigationItems = [
   { name: 'Home', href: '/', icon: Home },
@@ -48,9 +46,6 @@ const navigationItems = [
 
 export function Header() {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -76,12 +71,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleSearch = (query: string) => {
-    if (query.trim()) {
-      window.location.href = `/blog?search=${encodeURIComponent(query)}`;
-    }
-  };
 
   return (
     <header
@@ -127,45 +116,15 @@ export function Header() {
           </div>
 
           {/* Search Bar */}
-          <div className="hidden lg:flex flex-1 max-w-md mx-6 relative">
-            <div className="relative w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search articles..."
-                className="pl-10 pr-4"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-                onKeyDown={e => {
-                  if (e.key === 'Enter') {
-                    handleSearch(searchQuery);
-                    setIsSearchFocused(false);
-                  }
-                }}
-              />
-            </div>
-          </div>
+          <SearchBar />
 
-          {/* Right Side Actions */}
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="lg:hidden">
+            {/* <Button variant="ghost" size="icon" className="lg:hidden">
               <Search className="h-5 w-5" />
               <span className="sr-only">Search</span>
-            </Button>
+            </Button> */}
 
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-              className="hidden sm:inline-flex"
-            >
-              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-
+            <ThemeToggle />
             {user ? (
               <div className="flex items-center gap-2">
                 <DropdownMenu>
@@ -261,20 +220,7 @@ export function Header() {
                 </SheetHeader>
 
                 <div className="mt-6 space-y-6">
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      type="search"
-                      placeholder="Search articles..."
-                      className="pl-10"
-                      onKeyDown={e => {
-                        if (e.key === 'Enter') {
-                          handleSearch(e.currentTarget.value);
-                          setIsMobileMenuOpen(false);
-                        }
-                      }}
-                    />
-                  </div>
+                  <SearchBar isMobile />
 
                   <nav className="space-y-2">
                     {navigationItems.map(item => {
@@ -305,16 +251,7 @@ export function Header() {
                   <div className="flex items-center justify-between px-3 py-2">
                     <span className="text-sm font-medium">Theme</span>
                     {mounted ? (
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() =>
-                          setTheme(theme === 'light' ? 'dark' : 'light')
-                        }
-                      >
-                        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                        <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                      </Button>
+                      <ThemeToggle />
                     ) : (
                       <Button
                         variant="ghost"

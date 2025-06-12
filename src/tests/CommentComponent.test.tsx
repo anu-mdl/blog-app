@@ -1,8 +1,6 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import { CommentComponent } from '@/components/blog/post/CommentComponent';
 import { CommentsRecordExtended } from '@/api/extended_types';
-import { formatDate } from '@/lib/utils';
+import { CommentComponent } from '@/components/blog/post/CommentComponent';
+import { render } from '@testing-library/react';
 
 jest.mock('@/lib/utils', () => ({
   formatDate: jest.fn().mockImplementation(() => 'June 12, 2025'),

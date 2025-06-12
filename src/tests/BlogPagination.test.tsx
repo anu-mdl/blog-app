@@ -1,6 +1,5 @@
 import { BlogPagination } from '@/components/blog/BlogPagination';
 import { render } from '@testing-library/react';
-import { ComponentProps } from 'react';
 
 jest.mock('@/components/ui/button', () => ({
   Button: ({

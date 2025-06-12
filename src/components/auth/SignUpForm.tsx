@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { pocketbaseClient } from '@/api/pocketbase-client';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
@@ -212,7 +211,7 @@ export default function SignUpForm() {
         userData.avatar = avatarFile;
       }
 
-      const record = await pb.collection('users').create(userData);
+      await pb.collection('users').create(userData);
 
       try {
         if (!formData.email || !formData.password) {

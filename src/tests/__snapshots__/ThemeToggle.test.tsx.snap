@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeToggle matches dark theme snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="hidden sm:inline-flex"
+    variant="ghost"
+  >
+    <svg
+      data-testid="sun-icon"
+    />
+    <svg
+      data-testid="moon-icon"
+    />
+    <span
+      class="sr-only"
+    >
+      Toggle theme
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`ThemeToggle matches light theme snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="hidden sm:inline-flex"
+    variant="ghost"
+  >
+    <svg
+      data-testid="sun-icon"
+    />
+    <svg
+      data-testid="moon-icon"
+    />
+    <span
+      class="sr-only"
+    >
+      Toggle theme
+    </span>
+  </button>
+</DocumentFragment>
+`;
