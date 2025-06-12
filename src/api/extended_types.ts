@@ -22,6 +22,11 @@ export type CommentsRecordExtended = Omit<CommentsRecord, 'author'> & {
   author: UsersRecord<UserSocials>;
 };
 
+export type UsersFormData = Partial<UsersRecord<UserSocials>> & {
+  confirmPassword?: string;
+  agreeToTerms?: boolean;
+};
+
 // export type PostsRecordExtended = Omit<PostsRecord, 'author'> & {
 //   tableOfContents?: TOCItem[];
 //   author: UsersRecord<UserSocials>;
