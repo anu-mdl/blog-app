@@ -1,0 +1,1021 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentComponent Avatar handling renders comment with empty avatar string 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Avatar handling renders comment with long username 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        v
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          verylongusernamethatmighttruncate
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Avatar handling renders comment with single character username 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        A
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          A
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Avatar handling renders comment without avatar (fallback) 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Date handling renders comment with different date 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 10, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Date handling renders comment with empty date 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          Mock Date
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Date handling renders comment with undefined date 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          Mock Date
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Edge cases renders comment with emoji in content 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        Great post! 👍 Really enjoyed reading this 😊 Keep up the good work! 🚀
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Edge cases renders comment with special characters in content 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        Comment with special chars: &lt;&gt;&"'\`~!@#$%^&*()_+-=[]{}|;:,.&lt;&gt;?
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Edge cases renders comment with undefined username 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      />
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        />
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Reply comments renders reply comment with different author 1`] = `
+<div
+  class="space-y-3 ml-12"
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        r
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          replyuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a reply to the original comment.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Reply comments renders reply comment with indentation 1`] = `
+<div
+  class="space-y-3 ml-12"
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Top-level comments renders a standard comment correctly 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Top-level comments renders comment with high likes count 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            142
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Top-level comments renders comment with long content 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a very long comment that contains multiple sentences and should test how the component handles longer text content. It includes various punctuation marks, and tests the word wrapping functionality of the component. This helps ensure that the layout remains consistent even with extensive content.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Top-level comments renders comment with multiline content 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        First line of the comment.
+
+Second paragraph after line break.
+
+Third paragraph with more content.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            5
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CommentComponent Top-level comments renders comment with zero likes 1`] = `
+<div
+  class="space-y-3 "
+>
+  <div
+    class="flex gap-3"
+  >
+    <span
+      class="relative flex size-8 shrink-0 overflow-hidden rounded-full h-8 w-8 flex-shrink-0"
+      data-slot="avatar"
+    >
+      <span
+        class="bg-muted flex size-full items-center justify-center rounded-full"
+        data-slot="avatar-fallback"
+      >
+        t
+      </span>
+    </span>
+    <div
+      class="flex-1 min-w-0 space-y-2"
+    >
+      <div
+        class="flex items-center gap-2 text-sm"
+      >
+        <span
+          class="font-medium truncate"
+        >
+          testuser
+        </span>
+        <span
+          class="text-muted-foreground whitespace-nowrap"
+        >
+          June 12, 2025
+        </span>
+      </div>
+      <p
+        class="text-sm leading-relaxed break-words hyphens-auto whitespace-pre-wrap word-break-break-word overflow-wrap-anywhere"
+      >
+        This is a test comment with some content to display.
+      </p>
+      <div
+        class="flex items-center gap-4 text-xs text-muted-foreground"
+      >
+        <button
+          class="flex items-center gap-1 hover:text-foreground transition-colors"
+        >
+          <svg
+            aria-label="heart"
+            data-testid="heart-icon"
+          />
+          <span>
+            0
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

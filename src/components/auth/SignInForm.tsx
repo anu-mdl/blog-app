@@ -66,18 +66,9 @@ export function SignInForm() {
 
     try {
       const result = await authenticateUser(formData);
-      console.log('result', result);
       // const cookieStore = await cookies();
 
       if (result.success) {
-        // cookieStore.set({
-        //   name: 'pb_auth_client',
-        //   value: result.author?.id || '',
-        //   httpOnly: false,
-        //   secure: process.env.NODE_ENV === 'production',
-        //   maxAge: 60 * 60 * 24 * 7,
-        //   path: '/'
-        // });
         router.push('/blog');
       } else {
         setErrors({ general: result.error || 'Произошла неизвестная ошибка' });

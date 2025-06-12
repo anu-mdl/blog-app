@@ -1,0 +1,567 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogPostHeader renders correctly while loading 1`] = `
+<DocumentFragment>
+  <header
+    class="space-y-6"
+  >
+    <div
+      class="space-y-4"
+    >
+      <span>
+        Technology
+      </span>
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+      >
+        Test Post Title
+      </h1>
+      <p
+        class="text-xl text-muted-foreground leading-relaxed"
+      >
+        This is a test post excerpt
+      </p>
+    </div>
+    <div
+      class="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <div>
+          <img
+            alt="testuser"
+            src="https://mocked.pb.url/files/avatar.jpg"
+          />
+          <div>
+            t
+          </div>
+        </div>
+        <div>
+          <div
+            class="font-medium mutationtext-foreground"
+          >
+            testuser
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-4"
+      >
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            CalendarIcon
+          </span>
+          <span>
+            January 1, 2023
+          </span>
+        </div>
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            MessageSquareIcon
+          </span>
+          <span>
+            3
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative aspect-video overflow-hidden rounded-lg"
+    >
+      <img
+        alt="Cover"
+        class="w-full h-full object-cover"
+        height="600"
+        src="https://mocked.pb.url/files/test-image.jpg"
+        width="1200"
+      />
+    </div>
+    <div
+      class="flex flex-wrap gap-2 justify-between"
+    >
+      <div
+        class="flex items-center gap-2"
+      >
+        <span>
+          #react
+        </span>
+        <span>
+          #nextjs
+        </span>
+        <span>
+          #testing
+        </span>
+      </div>
+      <button
+        class="h-8 px-2 gap-1 text-xs transition-colors text-muted-foreground hover:text-red-600"
+        variant="ghost"
+      >
+        <span>
+          HeartIcon
+        </span>
+        <span>
+          0
+        </span>
+      </button>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`BlogPostHeader renders correctly with authenticated user 1`] = `
+<DocumentFragment>
+  <header
+    class="space-y-6"
+  >
+    <div
+      class="space-y-4"
+    >
+      <span>
+        Technology
+      </span>
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+      >
+        Test Post Title
+      </h1>
+      <p
+        class="text-xl text-muted-foreground leading-relaxed"
+      >
+        This is a test post excerpt
+      </p>
+    </div>
+    <div
+      class="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <div>
+          <img
+            alt="testuser"
+            src="https://mocked.pb.url/files/avatar.jpg"
+          />
+          <div>
+            t
+          </div>
+        </div>
+        <div>
+          <div
+            class="font-medium mutationtext-foreground"
+          >
+            testuser
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-4"
+      >
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            CalendarIcon
+          </span>
+          <span>
+            January 1, 2023
+          </span>
+        </div>
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            MessageSquareIcon
+          </span>
+          <span>
+            5
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative aspect-video overflow-hidden rounded-lg"
+    >
+      <img
+        alt="Cover"
+        class="w-full h-full object-cover"
+        height="600"
+        src="https://mocked.pb.url/files/test-image.jpg"
+        width="1200"
+      />
+    </div>
+    <div
+      class="flex flex-wrap gap-2 justify-between"
+    >
+      <div
+        class="flex items-center gap-2"
+      >
+        <span>
+          #react
+        </span>
+        <span>
+          #nextjs
+        </span>
+        <span>
+          #testing
+        </span>
+      </div>
+      <button
+        class="h-8 px-2 gap-1 text-xs transition-colors text-red-600 hover:text-red-700"
+        variant="ghost"
+      >
+        <span>
+          HeartIcon
+        </span>
+        <span>
+          10
+        </span>
+      </button>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`BlogPostHeader renders correctly with no author avatar 1`] = `
+<DocumentFragment>
+  <header
+    class="space-y-6"
+  >
+    <div
+      class="space-y-4"
+    >
+      <span>
+        Technology
+      </span>
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+      >
+        Test Post Title
+      </h1>
+      <p
+        class="text-xl text-muted-foreground leading-relaxed"
+      >
+        This is a test post excerpt
+      </p>
+    </div>
+    <div
+      class="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <div>
+          <img
+            alt="testuser"
+            src="/image.svg"
+          />
+          <div>
+            t
+          </div>
+        </div>
+        <div>
+          <div
+            class="font-medium mutationtext-foreground"
+          >
+            testuser
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-4"
+      >
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            CalendarIcon
+          </span>
+          <span>
+            January 1, 2023
+          </span>
+        </div>
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            MessageSquareIcon
+          </span>
+          <span>
+            3
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative aspect-video overflow-hidden rounded-lg"
+    >
+      <img
+        alt="Cover"
+        class="w-full h-full object-cover"
+        height="600"
+        src="https://mocked.pb.url/files/test-image.jpg"
+        width="1200"
+      />
+    </div>
+    <div
+      class="flex flex-wrap gap-2 justify-between"
+    >
+      <div
+        class="flex items-center gap-2"
+      >
+        <span>
+          #react
+        </span>
+        <span>
+          #nextjs
+        </span>
+        <span>
+          #testing
+        </span>
+      </div>
+      <button
+        class="h-8 px-2 gap-1 text-xs transition-colors text-muted-foreground hover:text-red-600"
+        variant="ghost"
+      >
+        <span>
+          HeartIcon
+        </span>
+        <span>
+          10
+        </span>
+      </button>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`BlogPostHeader renders correctly with no image 1`] = `
+<DocumentFragment>
+  <header
+    class="space-y-6"
+  >
+    <div
+      class="space-y-4"
+    >
+      <span>
+        Technology
+      </span>
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+      >
+        Test Post Title
+      </h1>
+      <p
+        class="text-xl text-muted-foreground leading-relaxed"
+      >
+        This is a test post excerpt
+      </p>
+    </div>
+    <div
+      class="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <div>
+          <img
+            alt="testuser"
+            src="https://mocked.pb.url/files/avatar.jpg"
+          />
+          <div>
+            t
+          </div>
+        </div>
+        <div>
+          <div
+            class="font-medium mutationtext-foreground"
+          >
+            testuser
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-4"
+      >
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            CalendarIcon
+          </span>
+          <span>
+            January 1, 2023
+          </span>
+        </div>
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            MessageSquareIcon
+          </span>
+          <span>
+            3
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative aspect-video overflow-hidden rounded-lg"
+    >
+      <img
+        alt="Cover"
+        class="w-full h-full object-cover"
+        height="600"
+        src="/image.svg"
+        width="1200"
+      />
+    </div>
+    <div
+      class="flex flex-wrap gap-2 justify-between"
+    >
+      <div
+        class="flex items-center gap-2"
+      >
+        <span>
+          #react
+        </span>
+        <span>
+          #nextjs
+        </span>
+        <span>
+          #testing
+        </span>
+      </div>
+      <button
+        class="h-8 px-2 gap-1 text-xs transition-colors text-red-600 hover:text-red-700"
+        variant="ghost"
+      >
+        <span>
+          HeartIcon
+        </span>
+        <span>
+          10
+        </span>
+      </button>
+    </div>
+  </header>
+</DocumentFragment>
+`;
+
+exports[`BlogPostHeader renders correctly without authenticated user 1`] = `
+<DocumentFragment>
+  <header
+    class="space-y-6"
+  >
+    <div
+      class="space-y-4"
+    >
+      <span>
+        Technology
+      </span>
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+      >
+        Test Post Title
+      </h1>
+      <p
+        class="text-xl text-muted-foreground leading-relaxed"
+      >
+        This is a test post excerpt
+      </p>
+    </div>
+    <div
+      class="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-muted-foreground"
+    >
+      <div
+        class="flex items-center gap-3"
+      >
+        <div>
+          <img
+            alt="testuser"
+            src="https://mocked.pb.url/files/avatar.jpg"
+          />
+          <div>
+            t
+          </div>
+        </div>
+        <div>
+          <div
+            class="font-medium mutationtext-foreground"
+          >
+            testuser
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-4"
+      >
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            CalendarIcon
+          </span>
+          <span>
+            January 1, 2023
+          </span>
+        </div>
+        <div
+          class="flex items-center gap-1"
+        >
+          <span>
+            MessageSquareIcon
+          </span>
+          <span>
+            3
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative aspect-video overflow-hidden rounded-lg"
+    >
+      <img
+        alt="Cover"
+        class="w-full h-full object-cover"
+        height="600"
+        src="https://mocked.pb.url/files/test-image.jpg"
+        width="1200"
+      />
+    </div>
+    <div
+      class="flex flex-wrap gap-2 justify-between"
+    >
+      <div
+        class="flex items-center gap-2"
+      >
+        <span>
+          #react
+        </span>
+        <span>
+          #nextjs
+        </span>
+        <span>
+          #testing
+        </span>
+      </div>
+      <button
+        class="h-8 px-2 gap-1 text-xs transition-colors text-muted-foreground hover:text-red-600"
+        disabled=""
+        variant="ghost"
+      >
+        <span>
+          HeartIcon
+        </span>
+        <span>
+          7
+        </span>
+      </button>
+    </div>
+  </header>
+</DocumentFragment>
+`;

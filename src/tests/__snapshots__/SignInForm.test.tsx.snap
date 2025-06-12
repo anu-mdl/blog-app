@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInForm renders correctly 1`] = `
+<div>
+  <div
+    class="space-y-6"
+  >
+    <form
+      class="space-y-4"
+    >
+      <div
+        class="space-y-2"
+      >
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          class=""
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required=""
+          type="email"
+          value=""
+        />
+      </div>
+      <div
+        class="space-y-2"
+      >
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <div
+          class="relative"
+        >
+          <input
+            class="pr-10"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required=""
+            type="password"
+            value=""
+          />
+          <button
+            class="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+            type="button"
+            variant="ghost"
+          >
+            <span>
+              EyeIcon
+            </span>
+            <span
+              class="sr-only"
+            >
+              Show password
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex items-center justify-between"
+      >
+        <div
+          class="flex items-center space-x-2"
+        >
+          <input
+            id="remember"
+            type="checkbox"
+          />
+          <label
+            class="text-sm font-normal"
+            for="remember"
+          >
+            Remember me
+          </label>
+        </div>
+      </div>
+      <button
+        class="w-full"
+        type="submit"
+      >
+        Sign in
+      </button>
+    </form>
+    <div
+      class="relative"
+    >
+      <div
+        class="absolute inset-0 flex items-center"
+      >
+        <hr />
+      </div>
+      <div
+        class="relative flex justify-center text-xs uppercase"
+      >
+        <span
+          class="bg-background px-2 text-muted-foreground"
+        >
+          Or continue with
+        </span>
+      </div>
+    </div>
+    <div
+      class="grid grid-cols-2 gap-3"
+    >
+      <button
+        class="w-full"
+        variant="outline"
+      >
+        <span>
+          MailIcon
+        </span>
+        Google
+      </button>
+      <button
+        class="w-full"
+        variant="outline"
+      >
+        <span>
+          GithubIcon
+        </span>
+        GitHub
+      </button>
+    </div>
+    <div
+      class="text-center text-sm text-muted-foreground"
+    >
+      <p>
+        Demo credentials:
+      </p>
+      <p>
+        Email: demo@example.com
+      </p>
+      <p>
+        Password: password
+      </p>
+    </div>
+  </div>
+</div>
+`;
