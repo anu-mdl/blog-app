@@ -5,14 +5,6 @@ import { PublicationsManager } from '@/components/admin/PublicationsManager';
 import { useRouter } from 'next/navigation';
 
 export default function AdminPage() {
-  const router = useRouter();
-  const user = pocketbaseClient().authStore.model;
-
-  if (!user || user.role !== 'admin') {
-    router.push('/blog');
-    router.refresh();
-  }
-
   return (
     <div className="w-full h-screen flex flex-col items-center mt-6">
       <div className="space-y-6 w-[80%]">

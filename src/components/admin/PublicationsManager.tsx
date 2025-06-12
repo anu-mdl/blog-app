@@ -43,11 +43,13 @@ import {
 import { useState } from 'react';
 import { DeleteConfirmDialog } from './DeleteConfirmDialog';
 import { PublicationDialog } from './PublicationDialog';
+import { useRouter } from 'next/navigation';
 
 export function PublicationsManager() {
   const [selectedPublications, setSelectedPublications] = useState<string[]>(
     []
   );
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
@@ -352,7 +354,9 @@ export function PublicationsManager() {
                       <DropdownMenuLabel>Actions</DropdownMenuLabel>
                       <DropdownMenuItem
                         onClick={() =>
-                          window.open(`/blog/${publication.id}`, '_blank')
+                          router.push(
+                            `/blog/admin/publications/${publication.id}`
+                          )
                         }
                       >
                         <Eye className="mr-2 h-4 w-4" />

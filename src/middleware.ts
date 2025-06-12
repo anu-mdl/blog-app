@@ -1,10 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import PocketBase from 'pocketbase';
-import { pocketbaseClient } from './api/pocketbase-client';
 
 const ADMIN_PROTECTED_PATHS = ['/blog/admin', '/admin'];
-
 const IGNORED_PATHS = [
   '/auth/sign-in',
   '/auth/sign-up',
@@ -41,22 +39,24 @@ export async function middleware(request: NextRequest) {
     const authData = JSON.parse(authCookie.value);
 
     if (!authData.token || !authData.model) {
-      throw new Error('Invalid auth data');
+      throw new Error('Invalid auth data structure');
     }
 
-    pocketbaseClient().authStore.save(authData.token, authData.model);
+    pb.authStore.save(authData.token, authData.model);
 
-    if (!pocketbaseClient().authStore.isValid) {
-      throw new Error('Token is not valid');
+    try {
+      const authRefresh = await pb.collection('users').authRefresh();
+
+      if (!authRefresh.record || authRefresh.record.role !== 'admin') {
+        console.log('User is not admin:', authRefresh.record?.role);
+        return NextResponse.redirect(new URL('/blog', request.url));
+      }
+
+      return NextResponse.next();
+    } catch (refreshError) {
+      console.log('Token refresh failed:', refreshError);
+      throw new Error('Token validation failed');
     }
-
-    const user = pocketbaseClient().authStore.model;
-
-    if (!user || user.role !== 'admin') {
-      return NextResponse.redirect(new URL('/', request.url));
-    }
-
-    return NextResponse.next();
   } catch (error) {
     console.error('Middleware auth error:', error);
 
@@ -64,7 +64,6 @@ export async function middleware(request: NextRequest) {
       new URL('/auth/sign-in', request.url)
     );
     response.cookies.delete('pb_auth');
-
     return response;
   }
 }
